@@ -15,7 +15,7 @@ on:
 jobs:
 	deploy:
 		name: 'Deploy for Test'
-		runs-on: [self-hosted, linux, x64, AWSEC2] #필요시 변경
+		runs-on: [AWSEC2test] #필요시 변경
 
 		steps:
 		- name: Download commmit
