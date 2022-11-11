@@ -8,19 +8,19 @@ name: 'TMP Deploy'
 on: 
 	pull_request: 
 		branches: 
-			- "feature/**"
+		- "feature/**"
 
 # 작업들
 # 순서대로 러너설정 -> 커밋받아오기 -> 환경세팅-> WAS시작
-jobs:
+jobs:	
 	deploy:
-		name: 'Deploy for Test'
+		name: Deploy for Test
 		runs-on: ["self-hosted", "Windows", "X64"] #필요시 변경
-
+		
 		steps:
 		- name: Download commmit
 			uses: actions/checkout@v3
-		
+			
 		- name: Set up python
 			uses: actions/setup-python@v3
 			with:
