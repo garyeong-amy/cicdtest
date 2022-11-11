@@ -30,12 +30,13 @@ jobs:
         
     - name: Django Migration
       run: |
-        cd cicdtest/app
+        cd app
 #       python manage.py makemigrations
 #       python manage.py migrate
 #       python manage.py collectstatic
 
     - name: Run App Server
       run: |
+        cd app
         python manage.py runserver 0.0.0.0:8000
         
