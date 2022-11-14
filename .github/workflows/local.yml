@@ -32,4 +32,5 @@ jobs:
 
     - name: Run App Server
       run: |
+        cd app
         python manage.py runserver 0.0.0.0:8888
