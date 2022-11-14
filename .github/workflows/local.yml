@@ -6,6 +6,8 @@ on:
   pull_request:
     branches: [ "feature/**"  ]
 
+  workflow_dispatch:
+
 jobs:
   build:
 
@@ -22,6 +24,11 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
+    
+    - name: Check Directory
+      uses: |
+        ls 
+        ls app
         
     - name: Install Dependencies
       run: |
