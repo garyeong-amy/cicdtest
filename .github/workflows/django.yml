@@ -30,12 +30,12 @@ jobs:
         python3 -m pip install --upgrade pip
         pip3 install -r requirements.txt
         
-#    - name: Django Migration
-#      run: |
-#        cd app
-#        python3 manage.py makemigrations
-#        python3 manage.py migrate
-#        python3 manage.py collectstatic
+    - name: Django Migration
+      run: |
+        cd app
+        python3 manage.py makemigrations
+        python3 manage.py migrate
+        python3 manage.py collectstatic
 
     - name: Run App Server
       run: |
