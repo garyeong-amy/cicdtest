@@ -9,10 +9,10 @@ on:
 jobs:
   build:
 
-    runs-on: [ "AWSEC2test" ]
+    runs-on: [ "NGLDZ" ]
     strategy:
       matrix:
-        python-version: [ "3.10" ]
+        python-version: [ "3.11" ]
 
     steps:
     - name: pull commits
@@ -25,18 +25,14 @@ jobs:
     
     - name: Install Dependencies
       run: |
+        source ~/.venv/bin/activate
         python -m pip install --upgrade pip
+        cd project
         pip install -r requirements.txt
         
-#    - name: Django Migration
-#      run: |
-#        cd app
-#        python manage.py makemigrations
-#        python manage.py migrate
-#        python manage.py collectstatic
-
-    - name: Run App Server
+    - name: Django Migration
       run: |
         cd app
-        python manage.py runserver 0.0.0.0:3000
+        python manage.py makemigrations
+        python manage.py migrate
         
