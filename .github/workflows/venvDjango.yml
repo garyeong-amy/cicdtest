@@ -1,5 +1,4 @@
-
-name: Django CI
+name: Django CICD for dev server
 
 on:
   push:
@@ -11,9 +10,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  testing:
+  deploy-to-dev:
+    if: ${{ github.event.pull_request.merged == true || github.event_name == 'workflow_dispatch' }}
+
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.merged == true || github.event_name == 'workflow_dispatch' }} 
-    run: |
-      echo A pull request was closed
-   
+    steps:
+    - name: echo 
+      run: |
+        echo A pull request was closed
